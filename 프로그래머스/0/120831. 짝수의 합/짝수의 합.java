@@ -1,11 +1,10 @@
+import java.util.stream.IntStream;
+
 class Solution {
     public int solution(int n) {
-        int even = (n % 2) == 0 ? n : n-1;
-        int answer = 0;
-        
-        for(int i = 2; i <= even; i += 2) {
-            answer += i;
-        }
+        int answer = IntStream.rangeClosed(0, n)
+            .filter(e -> e % 2 == 0)
+            .sum();
         return answer;
     }
 }
